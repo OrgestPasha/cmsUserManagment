@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "vIC7U+iMJJ7fFMS4DAeRUAuHRgv+X7AfPWo5yWMrM5E=",
+  "Source": "cmsAuth.API",
+  "BasePath": "_content/cmsAuth.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

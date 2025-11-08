@@ -1,0 +1,6 @@
+@cmsAuth_HostAddress = http://localhost:5053
+
+GET {{cmsAuth_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
