@@ -26,7 +26,7 @@ var redisOptionsConfiguration = builder.Configuration["Redis:Connection"];
 builder.Services.AddStackExchangeRedisCache(redisOptions =>
 {
     redisOptions.Configuration = redisOptionsConfiguration;
-})
+});
 
 builder.Services.AddSingleton<IJwtTokenProvider, JwtTokenProvider>(sp =>
 {
