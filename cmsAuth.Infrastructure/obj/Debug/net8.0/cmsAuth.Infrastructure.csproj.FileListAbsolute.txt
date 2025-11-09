@@ -17,3 +17,4 @@
 /home/roses/RiderProjects/cmsAuth/cmsAuth.Infrastructure/obj/Debug/net8.0/ref/cmsAuth.Infrastructure.dll
 /home/roses/RiderProjects/cmsAuth/cmsAuth.Infrastructure/bin/Debug/net8.0/cmsAuth.Application.dll
 /home/roses/RiderProjects/cmsAuth/cmsAuth.Infrastructure/bin/Debug/net8.0/cmsAuth.Application.pdb
+/home/roses/RiderProjects/cmsAuth/cmsAuth.Infrastructure/obj/Debug/net8.0/cmsAuth.Infrastructure.sourcelink.json

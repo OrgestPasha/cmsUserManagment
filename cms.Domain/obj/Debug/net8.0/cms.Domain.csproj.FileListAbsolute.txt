@@ -12,3 +12,4 @@
 /home/roses/RiderProjects/cmsAuth/cms.Domain/obj/Debug/net8.0/cms.Domain.pdb
 /home/roses/RiderProjects/cmsAuth/cms.Domain/obj/Debug/net8.0/cms.Domain.genruntimeconfig.cache
 /home/roses/RiderProjects/cmsAuth/cms.Domain/obj/Debug/net8.0/ref/cms.Domain.dll
+/home/roses/RiderProjects/cmsAuth/cms.Domain/obj/Debug/net8.0/cms.Domain.sourcelink.json

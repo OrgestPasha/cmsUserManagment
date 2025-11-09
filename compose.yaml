@@ -1,9 +1,8 @@
 ﻿services:
   cmsauth:
-    image: cmsauth
     build:
       context: .
-      dockerfile: cmsAuth/Dockerfile
+      dockerfile: cmsAuth.API/Dockerfile
     depends_on:
       - mysql
       - redis
@@ -12,6 +11,7 @@
       Redis__Connection: "redis:6379"
     ports:
       - "5000:5000"
+
 
   mysql:
     image: mysql:8.0

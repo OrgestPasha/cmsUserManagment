@@ -118,3 +118,4 @@
 /home/roses/RiderProjects/cmsAuth/cmsAuth.API/bin/Debug/net8.0/cmsAuth.Application.dll
 /home/roses/RiderProjects/cmsAuth/cmsAuth.API/bin/Debug/net8.0/cmsAuth.Application.pdb
 /home/roses/RiderProjects/cmsAuth/cmsAuth.API/bin/Debug/net8.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll
+/home/roses/RiderProjects/cmsAuth/cmsAuth.API/obj/Debug/net8.0/cmsAuth.API.sourcelink.json

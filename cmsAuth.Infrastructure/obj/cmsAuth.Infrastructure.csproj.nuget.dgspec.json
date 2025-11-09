@@ -52,10 +52,6 @@
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[8.0.3, )"
-            },
-            "StackExchange.Redis": {
-              "target": "Package",
-              "version": "[2.9.32, )"
             }
           },
           "imports": [
@@ -99,7 +95,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/roses/RiderProjects/cmsAuth/cms.Domain/cms.Domain.csproj": {
+                "projectPath": "/home/roses/RiderProjects/cmsAuth/cms.Domain/cms.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -126,10 +126,6 @@
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[8.0.3, )"
-            },
-            "StackExchange.Redis": {
-              "target": "Package",
-              "version": "[2.9.32, )"
             }
           },
           "imports": [
@@ -211,10 +207,6 @@
             "Microsoft.Extensions.Caching.StackExchangeRedis": {
               "target": "Package",
               "version": "[8.0.21, )"
-            },
-            "StackExchange.Redis": {
-              "target": "Package",
-              "version": "[2.9.32, )"
             }
           },
           "imports": [

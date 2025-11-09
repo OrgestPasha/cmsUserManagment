@@ -12,3 +12,7 @@
 /home/roses/RiderProjects/cmsAuth/cmsAuth.Application/obj/Debug/net8.0/cmsAuth.Application.pdb
 /home/roses/RiderProjects/cmsAuth/cmsAuth.Application/obj/Debug/net8.0/cmsAuth.Application.genruntimeconfig.cache
 /home/roses/RiderProjects/cmsAuth/cmsAuth.Application/obj/Debug/net8.0/ref/cmsAuth.Application.dll
+/home/roses/RiderProjects/cmsAuth/cmsAuth.Application/bin/Debug/net8.0/cms.Domain.dll
+/home/roses/RiderProjects/cmsAuth/cmsAuth.Application/bin/Debug/net8.0/cms.Domain.pdb
+/home/roses/RiderProjects/cmsAuth/cmsAuth.Application/obj/Debug/net8.0/cmsAuth.Application.sourcelink.json
+/home/roses/RiderProjects/cmsAuth/cmsAuth.Application/obj/Debug/net8.0/cmsAuth..1C3B3CCD.Up2Date

@@ -12,7 +12,6 @@
           "Microsoft.EntityFrameworkCore.Tools": "8.0.21",
           "Microsoft.Extensions.Caching.StackExchangeRedis": "8.0.21",
           "Pomelo.EntityFrameworkCore.MySql": "8.0.3",
-          "StackExchange.Redis": "2.9.32",
           "Swashbuckle.AspNetCore": "6.6.2",
           "cmsAuth.Infrastructure": "1.0.0"
         },
@@ -349,7 +348,7 @@
           "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "8.0.3",
           "Microsoft.Extensions.Options": "8.0.2",
-          "StackExchange.Redis": "2.9.32"
+          "StackExchange.Redis": "2.7.27"
         },
         "runtime": {
           "lib/net8.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll": {
@@ -480,15 +479,15 @@
           }
         }
       },
-      "StackExchange.Redis/2.9.32": {
+      "StackExchange.Redis/2.7.27": {
         "dependencies": {
           "Microsoft.Extensions.Logging.Abstractions": "8.0.3",
           "Pipelines.Sockets.Unofficial": "2.2.8"
         },
         "runtime": {
-          "lib/net8.0/StackExchange.Redis.dll": {
+          "lib/net6.0/StackExchange.Redis.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.9.32.54708"
+            "fileVersion": "2.7.27.49176"
           }
         }
       },
@@ -618,8 +617,7 @@
       "System.Threading.Channels/6.0.0": {},
       "cms.Domain/1.0.0": {
         "dependencies": {
-          "Pomelo.EntityFrameworkCore.MySql": "8.0.3",
-          "StackExchange.Redis": "2.9.32"
+          "Pomelo.EntityFrameworkCore.MySql": "8.0.3"
         },
         "runtime": {
           "cms.Domain.dll": {
@@ -631,7 +629,7 @@
       "cmsAuth.Application/1.0.0": {
         "dependencies": {
           "Pomelo.EntityFrameworkCore.MySql": "8.0.3",
-          "StackExchange.Redis": "2.9.32"
+          "cms.Domain": "1.0.0"
         },
         "runtime": {
           "cmsAuth.Application.dll": {
@@ -644,7 +642,6 @@
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": "8.0.21",
           "Microsoft.Extensions.Caching.StackExchangeRedis": "8.0.21",
-          "StackExchange.Redis": "2.9.32",
           "cms.Domain": "1.0.0",
           "cmsAuth.Application": "1.0.0"
         },
@@ -880,12 +877,12 @@
       "path": "pomelo.entityframeworkcore.mysql/8.0.3",
       "hashPath": "pomelo.entityframeworkcore.mysql.8.0.3.nupkg.sha512"
     },
-    "StackExchange.Redis/2.9.32": {
+    "StackExchange.Redis/2.7.27": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-j5Rjbf7gWz5izrn0UWQy9RlQY4cQDPkwJfVqATnVsOa/+zzJrps12LOgacMsDl/Vit2f01cDiDkG/Rst8v2iGw==",
-      "path": "stackexchange.redis/2.9.32",
-      "hashPath": "stackexchange.redis.2.9.32.nupkg.sha512"
+      "sha512": "sha512-Uqc2OQHglqj9/FfGQ6RkKFkZfHySfZlfmbCl+hc+u2I/IqunfelQ7QJi7ZhvAJxUtu80pildVX6NPLdDaUffOw==",
+      "path": "stackexchange.redis/2.7.27",
+      "hashPath": "stackexchange.redis.2.7.27.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.6.2": {
       "type": "package",

@@ -52,10 +52,6 @@
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[8.0.3, )"
-            },
-            "StackExchange.Redis": {
-              "target": "Package",
-              "version": "[2.9.32, )"
             }
           },
           "imports": [
