@@ -11,7 +11,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
 );
 
-var redisOptionsConfiguration = builder.Configuration.GetConnectionString("Redis");
+var redisOptionsConfiguration = builder.Configuration["Redis:Connection"];
 
 builder.Services.AddStackExchangeRedisCache(redisOptions =>
 {
@@ -26,12 +26,8 @@ builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 
 var app = builder.Build();
 
-// Add Swagger middleware
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 app.MapControllers();

@@ -10,7 +10,7 @@
       ConnectionStrings__DefaultConnection: "Server=mysql;Database=auth;Uid=user;Pwd=alskjdfa@alskdjfAAAb12;"
       Redis__Connection: "redis:6379"
     ports:
-      - "5000:5000"
+      - "5054:8080"
 
 
   mysql:
