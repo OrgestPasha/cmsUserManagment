@@ -10,7 +10,6 @@ COPY cmsUserManagment.API/*.csproj ./cmsUserManagment.API/
 COPY cmsUserManagment.Application/*.csproj ./cmsUserManagment.Application/
 COPY cmsUserManagment.Infrastructure/*.csproj ./cmsUserManagment.Infrastructure/
 COPY cmsUserManagment.Domain/*.csproj ./cmsUserManagment.Domain/
-COPY ClassLibrary1/*.csproj ./ClassLibrary1/
 
 # Restore NuGet packages for the entire solution.
 RUN dotnet restore "./cmsUserManagment.sln"
