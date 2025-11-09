@@ -16,7 +16,7 @@ public class JwtTokenProvider : IJwtTokenProvider
     {
         _jwtSettings = jwtSettings;
     }
-    
+
     public string GenerateToken(string email, string id, string role)
     {
         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Secret));
@@ -27,7 +27,7 @@ public class JwtTokenProvider : IJwtTokenProvider
             new Claim(JwtRegisteredClaimNames.Sub, id),
             new Claim(JwtRegisteredClaimNames.Email, email)
         };
-    
+
         claims.Add(new Claim(ClaimTypes.Role, role));
 
         var tokenDescriptor = new SecurityTokenDescriptor
@@ -38,7 +38,7 @@ public class JwtTokenProvider : IJwtTokenProvider
             Issuer = _jwtSettings.Issuer,
             Audience = _jwtSettings.Audience
         };
-    
+
         var tokenHandler = new JwtSecurityTokenHandler();
         SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
         return tokenHandler.WriteToken(token);

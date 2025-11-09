@@ -34,8 +34,8 @@ public class AuthenticationService(IDistributedCache cache) : IAuthenticationSer
             IsAdmin = false,
             Id = default
         };
-        
-        await _cache.SetStringAsync(key, JsonSerializer.Serialize(newUser));        
+
+        await _cache.SetStringAsync(key, JsonSerializer.Serialize(newUser));
         return true;
     }
 
