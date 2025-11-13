@@ -5,11 +5,11 @@ namespace cms.Domain.Entities;
 
 public class TwoFactorAuthCodes
 {
-    [Key]
-    public Guid Id { get; init; }
+    [Key] public Guid Id { get; init; }
+
     public DateTime Expires { get; init; } = DateTime.UtcNow.AddMinutes(10);
 
-    [ForeignKey(nameof(User))]
-    public required Guid UserId { get; init; }
+    [ForeignKey(nameof(User))] public required Guid UserId { get; init; }
+
     public User User { get; init; }
 }

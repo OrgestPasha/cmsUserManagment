@@ -2,8 +2,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-using cms.Domain.Entities;
-
 using cmsUserManagment.Application.Common.Settings;
 using cmsUserManagment.Application.Interfaces;
 
@@ -22,31 +20,30 @@ public class JwtTokenProvider : IJwtTokenProvider
 
     public string GenerateToken(string email, string id, bool isAdmin)
     {
-        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Secret));
-        var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+        SymmetricSecurityKey securityKey = new(Encoding.UTF8.GetBytes(_jwtSettings.Secret));
+        SigningCredentials credentials = new(securityKey, SecurityAlgorithms.HmacSha256);
 
-        var claims = new List<Claim>
+        List<Claim> claims = new()
         {
-            new Claim(JwtRegisteredClaimNames.Sub, id),
-            new Claim(JwtRegisteredClaimNames.Email, email)
+            new Claim(JwtRegisteredClaimNames.Sub, id), new Claim(JwtRegisteredClaimNames.Email, email)
         };
 
-        var role = "user";
+        string role = "user";
 
         if (isAdmin) role = "admin";
 
         claims.Add(new Claim(ClaimTypes.Role, role));
 
-        var tokenDescriptor = new SecurityTokenDescriptor
+        SecurityTokenDescriptor tokenDescriptor = new()
         {
             Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddDays(_jwtSettings.ExpiryMinutes),
+            Expires = DateTime.UtcNow.AddMinutes(_jwtSettings.ExpiryMinutes),
             SigningCredentials = credentials,
             Issuer = _jwtSettings.Issuer,
             Audience = _jwtSettings.Audience
         };
 
-        var tokenHandler = new JwtSecurityTokenHandler();
+        JwtSecurityTokenHandler tokenHandler = new();
         SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
         return tokenHandler.WriteToken(token);
     }
