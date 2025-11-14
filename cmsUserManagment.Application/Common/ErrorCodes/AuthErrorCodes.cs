@@ -2,16 +2,40 @@ namespace cmsUserManagment.Application.Common.ErrorCodes;
 
 public class AuthErrorCodes : Exception
 {
-    public static readonly AuthErrorCodes tokenNotFound = new(1, "Token not found");
-    public static readonly AuthErrorCodes notCorrectCode = new(2, "Code is not correct");
-    public static readonly AuthErrorCodes failedToLogOut = new(3, "Failed to logout");
-    public static readonly AuthErrorCodes badToken = new(4, "Bad token");
-    public int code;
-    public string message;
+    public static readonly AuthErrorCodes TokenNotFound
+        = new(1, "Authentication token was not provided or cannot be found.");
 
-    public AuthErrorCodes(int code, string message)
+    public static readonly AuthErrorCodes InvalidVerificationCode
+        = new(2, "The provided verification code is incorrect or expired.");
+
+    public static readonly AuthErrorCodes FailedToLogOut
+        = new(3, "An error occurred while logging out the user.");
+
+    public static readonly AuthErrorCodes BadToken
+        = new(4, "The authentication token is invalid, corrupted, or expired.");
+
+    public static readonly AuthErrorCodes Unauthorized
+        = new(5, "User is not authorized to perform this action.");
+
+    public static readonly AuthErrorCodes Forbidden
+        = new(6, "Access to the requested resource is forbidden.");
+
+    public static readonly AuthErrorCodes SessionExpired
+        = new(7, "User session has expired. Please log in again.");
+
+    public static readonly AuthErrorCodes LoginFailed
+        = new(8, "Login failed due to invalid username or password.");
+
+    public static readonly AuthErrorCodes TooManyAttempts
+        = new(9, "Too many login attempts. Please try again later.");
+
+    public static readonly AuthErrorCodes AccountLocked
+        = new(10, "The user account has been locked due to security policies.");
+
+    public AuthErrorCodes(int code, string message) : base(message)
     {
-        this.code = code;
-        this.message = message;
+        Code = code;
     }
+
+    public int Code { get; }
 }

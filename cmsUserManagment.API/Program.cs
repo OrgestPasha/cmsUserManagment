@@ -97,7 +97,10 @@ WebApplication app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
+
 app.UseMiddleware<JwtValidationMiddleware>();
+app.UseMiddleware<ErrorHandlingMiddleware>();
+
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

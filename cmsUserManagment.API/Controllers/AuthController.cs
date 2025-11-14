@@ -39,7 +39,7 @@ public class AuthController : ControllerBase
     [AllowAnonymous]
     public async Task<IActionResult> Login(string email, string password)
     {
-        var tokens = await _authenticationService.Login(email, password);
+        object? tokens = await _authenticationService.Login(email, password);
         return Ok(tokens);
     }
 
@@ -47,52 +47,50 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> Logout([FromBody] Guid refreshToken)
     {
         string jwt = _headersManager.GetJwtFromHeader(Request.Headers);
-        try
-        {
-            await _authenticationService.Logout(jwt, refreshToken);
-            return Ok();
-        }
-        catch (Exception e)
-        {
-            return BadRequest("There was an error while logging out.");
-        }
+
+        await _authenticationService.Logout(jwt, refreshToken);
+        return Ok();
     }
 
     [HttpGet("refresh-token")]
     public async Task<IActionResult> RefreshToken(Guid refreshToken)
     {
-        var token = await _authenticationService.RefreshToken(refreshToken, _headersManager.GetJwtFromHeader(Request.Headers));
+        string token =
+            await _authenticationService.RefreshToken(refreshToken, _headersManager.GetJwtFromHeader(Request.Headers));
         return Ok(token);
     }
 
+    [HttpPost("generate-two-factor-auth-code")]
+    public async Task<SetupCode> GenerateTwoFactorAuthSetupCode()
+    {
+        SetupCode setupCode =
+            await _authenticationService.GenerateAuthToken(_headersManager.GetJwtFromHeader(Request.Headers));
+        return setupCode;
+    }
+
+    [HttpPost("two-factor-auth-confirm")]
+    public async Task<bool> TwoFactorAuthenticationConfirm([FromBody] string code)
+    {
+        bool result =
+            await _authenticationService.TwoFactorAuthenticationConfirm(
+                _headersManager.GetJwtFromHeader(Request.Headers), code);
+        return result;
+    }
+
+    [HttpDelete("disable-two-factor-auth")]
+    public async Task<bool> DisableTwoFactorAuth()
+    {
+        bool result =
+            await _authenticationService.DisableTwoFactorAuth(_headersManager.GetJwtFromHeader(Request.Headers));
+        return result;
+    }
 
 
-
-
-    // [HttpGet("two-factor-auth")]
-    // public IActionResult GetTwoFactorAuthSetupInfo([FromBody] TwoFactorCodeInput credentials)
-    // {
-    //     string token = _authenticationService.twoFactorAuthentication(credentials.loginId, credentials.code);
-    //     return Ok(token);
-    // }
-
-
-    //
-    // [HttpGet("testing")]
-    // public IActionResult Testing(string manualKey)
-    // {
-    //     string key = "teest";
-    //     TwoFactorAuthenticator tfa = new TwoFactorAuthenticator();
-    //     bool result = tfa.ValidateTwoFactorPIN(key, manualKey);
-    //
-    //     if (!result) return BadRequest("not working");
-    //     return Ok("it works");
-    // }
-    //
-    // [HttpGet("testing-the-authmiddleware")]
-    // [Authorize]
-    // public IActionResult TestingTheAuthMiddleware()
-    // {
-    //     return Ok("it works");
-    // }
+    [HttpPost("login-with-two-factor-auth")]
+    [AllowAnonymous]
+    public async Task<IActionResult?> TwoFactorAuthenticationLogin(string loginId, string code)
+    {
+        LoginCredentials token = await _authenticationService.TwoFactorAuthenticationLogin(Guid.Parse(loginId), code);
+        return Ok(token);
+    }
 }
