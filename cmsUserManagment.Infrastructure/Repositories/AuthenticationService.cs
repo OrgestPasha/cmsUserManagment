@@ -185,6 +185,7 @@ public class AuthenticationService(
         if (user == null) throw new ArgumentNullException(nameof(user));
 
         user.IsTwoFactorEnabled = false;
+        user.TwoFactorSecret = null;
 
         await _dbContext.SaveChangesAsync();
         await UpdateCache(user);
